@@ -9,7 +9,7 @@ data "terraform_remote_state" "secrets" {
   backend = "s3"
   config = {
     endpoint   = "storage.yandexcloud.net"
-    bucket     = "avdeev-terraform-state"
+    bucket     = "avdeev-terraform-state-bucket"
     region     = "us-east-1"
     key        = "terraform.tfstate"
     access_key = var.secrets_credentials.access_key
