@@ -35,7 +35,7 @@ jobs:
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
-        run: terraform plan -no-color -input=false -var="secrets_credentials.access_key=${{ secrets.TF_YC_BACKEND_ACCESS_KEY }}" -var="secrets_credentials.secret_key=${{ secrets.TF_YC_BACKEND_SECRET_KEY }}"
+        run: terraform plan -no-color -input=false -var="secrets_credentials={access_key=\"${{ secrets.TF_YC_BACKEND_ACCESS_KEY }}\", secret_key=\"${{ secrets.TF_YC_BACKEND_SECRET_KEY }}\"}"
         continue-on-error: true
 
       - uses: actions/github-script@v6
@@ -67,4 +67,4 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve -input=false -input=false -var="secrets_credentials.access_key=${{ secrets.TF_YC_BACKEND_ACCESS_KEY }}" -var="secrets_credentials.secret_key=${{ secrets.TF_YC_BACKEND_SECRET_KEY }}"
+        run: terraform apply -auto-approve -input=false -input=false -var="secrets_credentials={access_key=\"${{ secrets.TF_YC_BACKEND_ACCESS_KEY }}\", secret_key=\"${{ secrets.TF_YC_BACKEND_SECRET_KEY }}\"}"
