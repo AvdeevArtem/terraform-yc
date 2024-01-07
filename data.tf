@@ -5,6 +5,13 @@ data "yandex_vpc_subnet" "default" {
     ]
 }
 
+data "yandex_vpc_security_group" "group1" {
+    name = "My security group"
+    depends_on = [
+      yandex_vpc_security_group.group1
+    ]
+}
+
 data "terraform_remote_state" "secrets" {
   backend = "s3"
   config = {
