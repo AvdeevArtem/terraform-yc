@@ -35,12 +35,12 @@ resource "yandex_storage_bucket" "s3-bucket" {
   versioning {
     enabled = true
   }
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        kms_master_key_id = yandex_kms_symmetric_key.key-s3-bucket.id
-        sse_algorithm     = "aws:kms"
-      }
-    }
-  }
+  # server_side_encryption_configuration {
+  #   rule {
+  #     apply_server_side_encryption_by_default {
+  #       kms_master_key_id = yandex_kms_symmetric_key.key-s3-bucket.id
+  #       sse_algorithm     = "aws:kms"
+  #     }
+  #   }
+  # }
 }
