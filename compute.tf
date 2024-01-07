@@ -29,6 +29,9 @@ resource "yandex_compute_instance" "web" {
   scheduling_policy {
     preemptible = true
   }
+  metadata {
+    serial-port-enable = 0
+  }
   allow_stopping_for_update = true
   depends_on = [
     yandex_vpc_subnet.default
