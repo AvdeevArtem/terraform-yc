@@ -6,7 +6,7 @@ data "yandex_vpc_subnet" "default" {
 }
 
 data "yandex_vpc_security_group" "group1" {
-    name = "My security group"
+    security_group_id = "group1"
     depends_on = [
       yandex_vpc_security_group.group1
     ]
