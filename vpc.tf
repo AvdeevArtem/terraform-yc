@@ -58,7 +58,7 @@ resource "yandex_vpc_subnet" "default" {
 resource "yandex_vpc_security_group" "group1" {
   name        = "My security group"
   description = "description for my security group"
-  network_id  = "${yandex_vpc_network.infrastructure.id}"
+  network_id  = yandex_vpc_network.infrastructure.id
 
 
   labels = {
