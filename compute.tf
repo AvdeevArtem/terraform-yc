@@ -30,7 +30,7 @@ resource "yandex_compute_instance" "web" {
     preemptible = true
   }
   metadata = {
-    serial-port-enable = 0
+    serial-port-enable = 1
   }
 
   allow_stopping_for_update = true
