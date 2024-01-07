@@ -19,6 +19,7 @@ resource "yandex_compute_instance" "web" {
 
   network_interface {
     subnet_id = data.yandex_vpc_subnet.default.subnet_id
+    security_group_ids = "${yandex_vpc_security_group.group1.id}"
   }
 
   resources {
@@ -30,7 +31,7 @@ resource "yandex_compute_instance" "web" {
     preemptible = true
   }
   metadata = {
-    serial-port-enable = 1
+    serial-port-enable = 0
   }
 
   allow_stopping_for_update = true
