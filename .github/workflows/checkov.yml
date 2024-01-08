@@ -21,3 +21,5 @@ jobs:
         with:
           directory: ./
           framework: terraform
+          download_external_modules: true
+          external_checks_dirs: ./checkov
