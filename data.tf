@@ -5,12 +5,12 @@ data "yandex_vpc_subnet" "default" {
     ]
 }
 
-data "yandex_vpc_security_group" "group1" {
-    security_group_id = "group1"
-    depends_on = [
-      yandex_vpc_security_group.group1
-    ]
-}
+# data "yandex_vpc_security_group" "group1" {
+#     security_group_id = "group1"
+#     depends_on = [
+#       yandex_vpc_security_group.group1
+#     ]
+# }
 
 data "terraform_remote_state" "secrets" {
   backend = "s3"
