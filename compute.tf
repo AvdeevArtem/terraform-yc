@@ -18,7 +18,8 @@ locals {
 #   }
 
 #   network_interface {
-#     subnet_id = data.yandex_vpc_subnet.default.subnet_id
+#     subnet_id          = data.yandex_vpc_subnet.default.subnet_id
+#     security_group_ids = [yandex_vpc_security_group.group1.id]
 #   }
 
 #   resources {
@@ -29,6 +30,10 @@ locals {
 #   scheduling_policy {
 #     preemptible = true
 #   }
+#   metadata = {
+#     serial-port-enable = 0
+#   }
+
 #   allow_stopping_for_update = true
 #   depends_on = [
 #     yandex_vpc_subnet.default
