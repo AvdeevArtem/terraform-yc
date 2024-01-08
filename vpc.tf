@@ -39,21 +39,21 @@ locals {
 }
 
 
-resource "yandex_vpc_network" "infrastructure" {
-    description = "Default VPC network"
-    name = "Infrastructure"
-    folder_id = "b1g0e14had2hltv69li5"
-}
+# resource "yandex_vpc_network" "infrastructure" {
+#     description = "Default VPC network"
+#     name = "Infrastructure"
+#     folder_id = "b1g0e14had2hltv69li5"
+# }
 
-resource "yandex_vpc_subnet" "default" {
-  for_each = local.all_subnets
+# resource "yandex_vpc_subnet" "default" {
+#   for_each = local.all_subnets
 
-  name = each.key
-  zone       = each.value.definition.zone
-  network_id = yandex_vpc_network.infrastructure.id
-  v4_cidr_blocks = [each.value.definition.cidr]
-  description    = each.value.definition.purpose
-}
+#   name = each.key
+#   zone       = each.value.definition.zone
+#   network_id = yandex_vpc_network.infrastructure.id
+#   v4_cidr_blocks = [each.value.definition.cidr]
+#   description    = each.value.definition.purpose
+# }
 
 # resource "yandex_vpc_security_group" "group1" {
 #   name        = "My security group"
