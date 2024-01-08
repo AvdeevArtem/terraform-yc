@@ -19,12 +19,12 @@ resource "yandex_iam_service_account_static_access_key" "s3-static-key" {
   description        = "static access key for object storage"
 }
 
-resource "yandex_kms_symmetric_key" "key-s3-bucket" {
-  name              = "s3-bucket-symetric-key"
-  description       = "s3 bucket key"
-  default_algorithm = "AES_128"
-  rotation_period   = "8760h" // equal to 1 year
-}
+# resource "yandex_kms_symmetric_key" "key-s3-bucket" {
+#   name              = "s3-bucket-symetric-key"
+#   description       = "s3 bucket key"
+#   default_algorithm = "AES_128"
+#   rotation_period   = "8760h" // equal to 1 year
+# }
 
 
 resource "yandex_storage_bucket" "s3-bucket" {
@@ -35,12 +35,12 @@ resource "yandex_storage_bucket" "s3-bucket" {
   versioning {
     enabled = true
   }
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        kms_master_key_id = yandex_kms_symmetric_key.key-s3-bucket.id
-        sse_algorithm     = "aws:kms"
-      }
-    }
-  }
+  # server_side_encryption_configuration {
+  #   rule {
+  #     apply_server_side_encryption_by_default {
+  #       kms_master_key_id = yandex_kms_symmetric_key.key-s3-bucket.id
+  #       sse_algorithm     = "aws:kms"
+  #     }
+  #   }
+  # }
 }
