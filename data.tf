@@ -1,9 +1,9 @@
-data "yandex_vpc_subnet" "default" {
-    name = "infrastructure-test-ru-central1-a"
-    depends_on = [
-      yandex_vpc_subnet.default
-    ]
-}
+# data "yandex_vpc_subnet" "default" {
+#     name = "infrastructure-test-ru-central1-a"
+#     depends_on = [
+#       yandex_vpc_subnet.default
+#     ]
+# }
 
 # data "yandex_vpc_security_group" "group1" {
 #     security_group_id = "group1"
